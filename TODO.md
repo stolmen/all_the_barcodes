@@ -1,0 +1,2 @@
+- read and store config in localstorage
+- test somewhere maybe
