@@ -1,3 +1,16 @@
+// valid formats:
+// <svg id="code128"></svg>
+// <svg id="ean-13"></svg>
+// <svg id="ean-8"></svg>
+// <svg id="ean-5"></svg>
+// <svg id="ean-2"></svg>
+// <svg id="upc-a"></svg>
+// <svg id="code39"></svg>
+// <svg id="itf-14"></svg>
+// <svg id="msi"></svg>
+// <svg id="pharmacode"></svg>
+
+
 console.log(JSON.parse(localStorage.getItem('barcodeConfig')) );
 let config = JSON.parse(localStorage.getItem('barcodeConfig')) ||  {
    interval_ms: 200,
