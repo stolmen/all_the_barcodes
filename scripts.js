@@ -1,4 +1,4 @@
-const config = {
+let config = {
    interval_ms: 200,
     barcodes : [
       ["5412345", {format: "ean8"}],
@@ -6,6 +6,7 @@ const config = {
     ]
 }
 
+document.getElementById("textinput").value=JSON.stringify(config);
 // maybe expose this to a text editor or omsething then save to cookies or something for some persistence?
 
 let idx=0;
@@ -16,7 +17,14 @@ function switchBarcode(){
   idx = (idx + 1) % config.barcodes.length;
 }
 function submitConfig(){
+	console.log('submitting')
+	var textValue = document.getElementById("textinput").value;
+	var parsed=JSON.parse(textValue);
+	config = parsed;
+	window.clearInterval(intervalId);
+	intervalId=setInterval(switchBarcode,config.interval_ms);
 }
 
-setInterval(switchBarcode,config.interval_ms);
+
+let intervalId=setInterval(switchBarcode,config.interval_ms);
 
