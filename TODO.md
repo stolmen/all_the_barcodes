@@ -1,2 +1,2 @@
-- read and store config in localstorage
+- DONE read and store config in localstorage
 - test somewhere maybe
