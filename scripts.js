@@ -14,6 +14,7 @@
 console.log(JSON.parse(localStorage.getItem('barcodeConfig')) );
 let config = JSON.parse(localStorage.getItem('barcodeConfig')) ||  {
    interval_ms: 200,
+   jitter_pct: 5,
     barcodes : [
       ["5412345", {format: "ean8"}],
       ["1234567", {format: "ean8"}]
@@ -32,6 +33,11 @@ function switchBarcode(){
   const specy = config.barcodes[idx];
   JsBarcode("#barcode", specy[0], specy[1]);
   idx = (idx + 1) % config.barcodes.length;
+	const element = document.querySelector("#barcode");
+	const x = 100-Math.random()*config.jitter_pct;
+	const y = 100-Math.random()*config.jitter_pct;
+	element.style.width =`${x}%`;
+	element.style.height =`${y}%`;
 }
 function submitConfig(){
 	console.log('submitting')
