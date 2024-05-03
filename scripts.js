@@ -15,6 +15,7 @@ console.log(JSON.parse(localStorage.getItem('barcodeConfig')) );
 let config = JSON.parse(localStorage.getItem('barcodeConfig')) ||  {
    interval_ms: 200,
    jitter_pct: 5,
+	rotate90:false,
     barcodes : [
       ["5412345", {format: "ean8"}],
       ["1234567", {format: "ean8"}]
@@ -38,6 +39,11 @@ function switchBarcode(){
 	const y = 100-Math.random()*config.jitter_pct;
 	element.style.width =`${x}%`;
 	element.style.height =`${y}%`;
+	if (config.rotate90){
+		element.style.transform = "rotate(90deg)";
+	}
+
+
 }
 function submitConfig(){
 	console.log('submitting')
