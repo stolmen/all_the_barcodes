@@ -35,13 +35,19 @@ function switchBarcode(){
   JsBarcode("#barcode", specy[0], specy[1]);
   idx = (idx + 1) % config.barcodes.length;
 	const barcodeElement = document.querySelector("#barcode");
+	if (config.jitter_pct) {
+
 	const x = 100-Math.random()*config.jitter_pct;
 	const y = 100-Math.random()*config.jitter_pct;
 	barcodeElement.style.width =`${x}%`;
 	barcodeElement.style.height =`${y}%`;
+	}
 	const containerElement = document.querySelector(".barcodeContainer");
 	if (config.rotate90){
 		containerElement.style.transform = "rotate(90deg)";
+	}
+	else {
+		containerElement.style.transform = "rotate(0deg)";
 	}
 
 
